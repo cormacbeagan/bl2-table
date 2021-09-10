@@ -1,0 +1,61 @@
+body {
+  font-family: Catamaran, Helvetica, sans-serif;
+  background: #1b252f;
+}
+
+* {
+  border: none;
+}
+
+table {
+  margin: 10px auto;
+  width: 80%;
+  height: 100%;
+  min-height: 400px;
+  min-width: 400px;
+  border: 3px solid white;
+  background: #1b252f;
+  border-radius: 3px;
+  padding: 12px;
+}
+
+big {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+small {
+  font-size: 16px;
+}
+
+tbody {
+  background: white;
+  border-radius: 3px;
+}
+
+th {
+  padding: 5px;
+}
+
+tr {
+  border: none;
+  margin-top: 8px;
+  border-bottom: 1px solid black;
+  background: transparent;
+  border-radius: 2px;
+}
+
+tr:nth-child(even) {
+  background: #1b252f;
+  color: white;
+}
+tr:nth-child(odd) {
+  background: #fff;
+  color: #1b252f;
+}
+
+td {
+  padding: 5px;
+  border-radius: 2px;
+}
