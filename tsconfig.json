@@ -18,8 +18,8 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "outDir": "./lib"
+    "outDir": "./public"
   },
   "include": ["index.ts"],
-  "exclude": ["./node_modules", "./lib"]
+  "exclude": ["./node_modules", "./public"]
 }
