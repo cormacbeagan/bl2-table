@@ -1,5 +1,7 @@
 /public
 
+.env
+
 node_modules/
 
 
