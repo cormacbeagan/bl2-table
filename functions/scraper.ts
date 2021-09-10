@@ -12,7 +12,6 @@ export const scraper = async () => {
   const response = await axios(config);
   const dom = new JSDOM(response.data);
   const document = dom.window.document;
-  console.log(document);
 
   const table = document.querySelector(".nodec");
   if (!table) throw new Error("Table not found");
@@ -23,6 +22,5 @@ export const scraper = async () => {
 <bod>${tableString}</body>
 </html>`;
 
-  console.log(string);
   return string;
 };
