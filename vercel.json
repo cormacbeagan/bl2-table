@@ -2,6 +2,6 @@
   "version": 2,
   "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
 
-  "redirects": { "source": "/style.css", "destination": "/public/style.css" },
+  "redirects": [{ "source": "/style.css", "destination": "/public/style.css" }],
   "routes": [{ "src": "/(.*)", "dest": "/index.js" }]
 }
