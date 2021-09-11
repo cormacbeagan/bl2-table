@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 8888;
 app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
-app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   try {
