@@ -1,6 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/style.css", "destination": "/public/style.css" },
-    { "source": "/api/(.*)", "destination": "/api" }
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
+  "routes": [
+    { "src": "/style.css", "dest": "/public/style.css" },
+    { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
