@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
   "routes": [
-    { "source": "/style.css", "destination": "/public/style.css" },
+    { "src": "/style.css", "dest": "/public/style.css" },
     { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
