@@ -15,8 +15,6 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "./public")));
 
 app.get("/", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
   try {
     const htmlString = await scraper();
     res.status(200).header("Content-Type", "text/html").send(htmlString);
