@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8888;
 
-// app.use(helmet());
+app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", async (req, res) => {
   try {
     const htmlString = await scraper();
+    res.setHeader("X-Frame-Options", "allow-from *");
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
     res.status(400).send();
