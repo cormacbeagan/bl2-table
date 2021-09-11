@@ -1,8 +1,8 @@
-import express, { Response, Request } from "express";
+import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
-import { scraper } from "./functions/scraper";
+import { scraper } from "./functions/scraper.js";
 
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 8888;
 app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 
-app.get("/", async (req: Request, res: Response) => {
+app.get("/", async (req, res) => {
   try {
     const htmlString = await scraper();
     res.status(200).header("Content-Type", "text/html").send(htmlString);
@@ -22,12 +22,10 @@ app.get("/", async (req: Request, res: Response) => {
   }
 });
 
-app.get("/style.css", (req: Request, res: Response) => {
-  res.sendFile(__dirname + "/" + "style.css");
+app.get("/style.css", (req, res) => {
+  res.sendFile("./public/style.css");
 });
 
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
 });
-
-export {};

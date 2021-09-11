@@ -1,11 +1,10 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 import jsdom from "jsdom";
 const { JSDOM } = jsdom;
-// global.DOMParser = new JSDOM().window.DOMParser;
 global.XMLSerializer = new JSDOM().window.XMLSerializer;
 
 export const scraper = async () => {
-  const config: AxiosRequestConfig = {
+  const config = {
     method: "GET",
     url: "http://www.rugbyweb.de/showdb.inc.php?league=BL2S",
   };
