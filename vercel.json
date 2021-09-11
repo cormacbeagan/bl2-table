@@ -1,5 +1,5 @@
 {
   "version": 2,
   "name": "BL-Tabelle",
-  "routes": [{ "src": "/api/(.*)", "dest": "/api" }]
+  "rewrites": [{ "src": "/(.*)", "dest": "api/" }]
 }

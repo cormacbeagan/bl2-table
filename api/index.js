@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/style.css", (req, res) => {
-  res.sendFile("./public/style.css");
+  res.sendFile("../public/style.css");
 });
 
 app.listen(PORT, async () => {
