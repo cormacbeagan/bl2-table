@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8888;
 
-app.use(helmet());
+// app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
