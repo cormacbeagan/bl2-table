@@ -11,6 +11,8 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
+app.use(express.static("public"));
+
 app.get("/", async (req, res) => {
   try {
     const htmlString = await scraper();
