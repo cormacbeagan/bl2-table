@@ -22,9 +22,9 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.get("/style.css", (req, res) => {
-  res.sendFile("../public/style.css");
-});
+// app.get("/style.css", (req, res) => {
+//   res.sendFile("../public/style.css");
+// });
 
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
