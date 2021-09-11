@@ -1,8 +1,6 @@
 {
-  "version": 2,
-  "name": "BL-Tabelle",
   "rewrites": [
-    { "src": "style.css", "destination": "/public/style.css" },
-    { "src": "/(.*)", "destination": "/api/index.js" }
+    { "src": "/style.css", "destination": "/public/style.css" },
+    { "src": "/", "destination": "/api/index.js" }
   ]
 }
