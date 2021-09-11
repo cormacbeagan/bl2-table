@@ -10,24 +10,17 @@ const PORT = process.env.PORT || 8888;
 app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
-// app.use(express.static(__dirname));
+app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   try {
     const htmlString = await scraper();
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
-    // console.log(err);
     res.status(400).send();
   }
 });
 
-// app.get("/style.css", (req, res) => {
-//   res.sendFile("../public/style.css");
-// });
-
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
 });
-
-// module.exports = app;
