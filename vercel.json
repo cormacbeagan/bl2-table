@@ -8,11 +8,8 @@
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET",
-
-        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-        "X-Frame-Options": "allow-from *"
+        "Content-Security-Policy": "frame-ancestors 'self' http://127.0.0.1:5500/index.html;"
       },
-
       "dest": "/index.js"
     }
   ]
