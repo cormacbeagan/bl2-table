@@ -1,14 +1,14 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import helmet from "helmet";
+// import helmet from "helmet";
 import { scraper } from "./functions/scraper.js";
 import path from "path";
 const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8888;
 
-app.use(helmet());
+// app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
