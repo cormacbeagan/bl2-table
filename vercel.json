@@ -8,7 +8,7 @@
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET",
-        "Content-Security-Policy": "frame-ancestors 'self' http://127.0.0.1:5500/index.html;"
+        "Content-Security-Policy": "frame-ancestors 'self' http://127.0.0.1:5501/index.html https://portfolio-qi6q97hgg-cormacbeagan.vercel.app/player;"
       },
       "dest": "/index.js"
     }
