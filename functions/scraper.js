@@ -3,10 +3,10 @@ import jsdom from "jsdom";
 const { JSDOM } = jsdom;
 global.XMLSerializer = new JSDOM().window.XMLSerializer;
 
-export const scraper = async () => {
+export const scraper = async (league) => {
   const config = {
     method: "GET",
-    url: "http://www.rugbyweb.de/showdb.inc.php?league=BL2S",
+    url: `http://www.rugbyweb.de/showdb.inc.php?league=${league}`,
   };
   const response = await axios(config);
   const dom = new JSDOM(response.data);
