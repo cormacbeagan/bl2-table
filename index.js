@@ -4,6 +4,11 @@ import cors from "cors";
 import helmet from "helmet";
 import { scraper } from "./functions/scraper.js";
 import path from "path";
+
+const zweite = "RLbayern";
+const erste = "BL2S";
+const damen = "D7Fs";
+
 const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -16,7 +21,25 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 app.get("/", async (req, res) => {
   try {
-    const htmlString = await scraper();
+    const htmlString = await scraper(erste);
+    res.status(200).header("Content-Type", "text/html").send(htmlString);
+  } catch (err) {
+    res.status(400).send();
+  }
+});
+
+app.get("/regio", async (req, res) => {
+  try {
+    const htmlString = await scraper(zweite);
+    res.status(200).header("Content-Type", "text/html").send(htmlString);
+  } catch (err) {
+    res.status(400).send();
+  }
+});
+
+app.get("/damen", async (req, res) => {
+  try {
+    const htmlString = await scraper(damen);
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
     res.status(400).send();
