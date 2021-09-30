@@ -57,6 +57,16 @@ app.get("/fixtures", async (req, res) => {
   }
 });
 
+app.get("/fixtures-regio", async (req, res) => {
+  try {
+    const fixString = await fixtures(zweite);
+    res.status(200).header("Content-Type", "text/html").send(fixString);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send(err);
+  }
+});
+
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
 });

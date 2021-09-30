@@ -53,12 +53,9 @@ tr:nth-child(even) {
 td {
   padding: 5px;
   border-radius: 2px;
+  max-width: 160px;
+  overflow: hidden;
 }
-
-/* td.nopad {
-  display: none;
-  background: green;
-} */
 
 .center {
   text-align: center;
