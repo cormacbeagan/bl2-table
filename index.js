@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import { scraper } from "./functions/scraper.js";
+import { fixtures } from "./functions/scrapeFixtures.js";
 import path from "path";
 
 const zweite = "RLbayern";
@@ -43,6 +44,16 @@ app.get("/damen", async (req, res) => {
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
     res.status(400).send();
+  }
+});
+
+app.get("/fixtures", async (req, res) => {
+  try {
+    const fixString = await fixtures(erste);
+    res.status(200).header("Content-Type", "text/html").send(fixString);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send(err);
   }
 });
 

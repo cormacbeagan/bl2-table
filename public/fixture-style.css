@@ -17,7 +17,7 @@ table {
   border: 3px solid white;
   background: #1b252f;
   border-radius: 3px;
-  padding: 0 12px 0 12px;
+  padding: 5px 12px 5px 12px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -41,17 +41,13 @@ tr {
   border-radius: 2px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background: #1b252f;
   color: white;
 }
-tr:nth-child(odd) {
+tr:nth-child(even) {
   background: #fff;
   color: #1b252f;
-}
-
-tr:nth-child(1) {
-  display: none;
 }
 
 td {
@@ -59,9 +55,10 @@ td {
   border-radius: 2px;
 }
 
-td.nopad {
+/* td.nopad {
   display: none;
-}
+  background: green;
+} */
 
 .center {
   text-align: center;

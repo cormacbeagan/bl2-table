@@ -6,12 +6,11 @@ global.XMLSerializer = new JSDOM().window.XMLSerializer;
 export const scraper = async (league) => {
   const config = {
     method: "GET",
-    url: `http://www.rugbyweb.de/showdb.inc.php?league=${league}`,
+    url: `http://www.rugbyweb.de/showdb.inc.php?league=${league}&layout=rw2`,
   };
   const response = await axios(config);
   const dom = new JSDOM(response.data);
   const document = dom.window.document;
-
   const table = document.querySelector(".nodec");
   if (!table) throw new Error("Table not found");
   const tableString = new XMLSerializer().serializeToString(table);
