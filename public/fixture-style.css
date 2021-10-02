@@ -75,6 +75,8 @@ a:hover {
 td {
   padding: 5px;
   border-radius: 2px;
+  max-width: 160px;
+  overflow: hidden;
 }
 
 .center {
