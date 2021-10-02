@@ -25,6 +25,7 @@ app.get("/", async (req, res) => {
     const htmlString = await scraper(erste);
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
+    console.error(err);
     res.status(400).send();
   }
 });
@@ -34,6 +35,7 @@ app.get("/regio", async (req, res) => {
     const htmlString = await scraper(zweite);
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
+    console.error(err);
     res.status(400).send();
   }
 });
@@ -43,6 +45,7 @@ app.get("/damen", async (req, res) => {
     const htmlString = await scraper(damen);
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
+    console.error(err);
     res.status(400).send();
   }
 });
@@ -52,7 +55,7 @@ app.get("/fixtures", async (req, res) => {
     const fixString = await fixtures(erste);
     res.status(200).header("Content-Type", "text/html").send(fixString);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(400).send(err);
   }
 });

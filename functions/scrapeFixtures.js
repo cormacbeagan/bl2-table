@@ -35,7 +35,12 @@ export const fixtures = async (league) => {
 </head>
 <body>
   <table>
-  ${stringRows.map((item) => item)}
+  ${stringRows.map((item) => item).join("")}
+  <tr>
+    <td colspan="7" class="link">
+      <a href="https://www.RugbyWeb.de/" title="RugbyWeb.de" target="_blank" rel="noreferrer">&copy; RugbyWeb.de</a>
+    </td>
+  </tr>
   </table>
   </body>
   </html>`;

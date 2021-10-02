@@ -50,15 +50,32 @@ tr:nth-child(even) {
   color: #1b252f;
 }
 
+tr:last-child {
+  background: #1b252f;
+  height: 10px;
+  font-size: 12px;
+  text-align: right;
+  margin: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.link {
+  padding: 0;
+  padding-bottom: 2px;
+}
+
 td {
   padding: 5px;
   border-radius: 2px;
 }
-
-/* td.nopad {
-  display: none;
-  background: green;
-} */
 
 .center {
   text-align: center;
