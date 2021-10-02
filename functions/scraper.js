@@ -18,7 +18,7 @@ export const scraper = async (league) => {
   newCell.colSpan = 7;
   newCell.className = "link";
   const anchor = document.createElement("a");
-  const title = document.createTextNode(`&copy; RugbyWeb.de`);
+  const title = document.createTextNode(`© RugbyWeb.de`);
   anchor.appendChild(title);
   anchor.title = "RugbyWeb link";
   anchor.href = "https://www.rugbyweb.de/";
