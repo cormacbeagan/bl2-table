@@ -1,0 +1,5 @@
+/\*
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: \_
+Access-Control-Allow-Methods: GET,
+Content-Security-Policy: frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501
