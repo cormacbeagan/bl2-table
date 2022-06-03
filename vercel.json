@@ -4,26 +4,27 @@
   "routes": [
     {
       "src": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Credentials",
-          "value": "true"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET"
-        },
 
-        {
-          "key": "Content-Security-Policy",
-          "value": "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
-        }
-      ],
       "dest": "/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Credentials",
+      "value": "true"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET"
+    },
+
+    {
+      "key": "Content-Security-Policy",
+      "value": "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     }
   ]
 }
