@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", async (req, res) => {
   try {
     const htmlString = await scraper(erste);
+    res.setHeader(
+      "Content-Security-Policy",
+      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+    );
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
     console.error(err);
