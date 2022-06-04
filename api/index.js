@@ -2,15 +2,15 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
-import { scraper } from "./functions/scraper.js";
-import { fixtures } from "./functions/scrapeFixtures.js";
-import path from "path";
+import { scraper } from "../functions/scraper.js";
+import { fixtures } from "../functions/scrapeFixtures.js";
+// import path from "path";
 
 const zweite = "RLbayern";
 const erste = "BL2S";
 const damen = "D7Fs";
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8888;
 
@@ -18,7 +18,7 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use(express.static(path.join(__dirname, "./public")));
+// app.use(express.static(path.join(__dirname, "./public")));
 
 app.get("/", async (req, res) => {
   try {
