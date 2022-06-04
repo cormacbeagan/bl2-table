@@ -27,7 +27,7 @@ export const scraper = async (league) => {
   const tableString = new XMLSerializer().serializeToString(table);
   const string = `<!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="public/style.css">
 <body>${tableString}</body>
 </html>`;
 
