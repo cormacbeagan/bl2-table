@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
     const htmlString = await scraper(erste);
     res.setHeader(
       "Content-Security-Policy",
-      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     );
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
@@ -39,7 +39,7 @@ app.get("/regio", async (req, res) => {
     const htmlString = await scraper(zweite);
     res.setHeader(
       "Content-Security-Policy",
-      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     );
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
@@ -53,7 +53,7 @@ app.get("/damen", async (req, res) => {
     const htmlString = await scraper(damen);
     res.setHeader(
       "Content-Security-Policy",
-      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     );
     res.status(200).header("Content-Type", "text/html").send(htmlString);
   } catch (err) {
@@ -67,7 +67,7 @@ app.get("/fixtures", async (req, res) => {
     const fixString = await fixtures(erste);
     res.setHeader(
       "Content-Security-Policy",
-      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     );
     res.status(200).header("Content-Type", "text/html").send(fixString);
   } catch (err) {
@@ -81,7 +81,7 @@ app.get("/fixtures-regio", async (req, res) => {
     const fixString = await fixtures(zweite);
     res.setHeader(
       "Content-Security-Policy",
-      "frame-ancestors 'self', https://www.stusta-rugby.de, http://127.0.0.1:5501"
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
     );
     res.status(200).header("Content-Type", "text/html").send(fixString);
   } catch (err) {
