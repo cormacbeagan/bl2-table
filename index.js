@@ -2,8 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
-import { scraper } from "../functions/scraper.js";
-import { fixtures } from "../functions/scrapeFixtures.js";
+import { scraper } from "./functions/scraper.js";
+import { fixtures } from "./functions/scrapeFixtures.js";
 // import path from "path";
 
 const zweite = "RLbayern";
