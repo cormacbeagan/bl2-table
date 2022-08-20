@@ -12,12 +12,12 @@ table {
   margin: 10px auto;
   width: 80%;
   height: 100%;
-  min-height: 400px;
-  min-width: 400px;
-  border: 3px solid white;
+  min-height: 300px;
+  min-width: 350px;
+  /* border: 3px solid white; */
   background: #1b252f;
-  border-radius: 3px;
-  padding: 5px 12px 5px 12px;
+  /* border-radius: 3px; */
+  /* padding: 5px 12px 5px 12px; */
   top: 0;
   bottom: 0;
   left: 0;
@@ -30,7 +30,7 @@ tbody {
 }
 
 th {
-  padding: 5px;
+  padding: 0 5px 0 5px;
 }
 
 tr {
@@ -73,7 +73,7 @@ a:hover {
 }
 
 td {
-  padding: 5px;
+  padding: 0 5px 0 5px;
   border-radius: 2px;
   max-width: 160px;
   overflow: hidden;
