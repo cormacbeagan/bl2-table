@@ -43,12 +43,11 @@ export const fixtures = async (league) => {
       resultsCells.forEach((cell) => cell.classList.add("results-cell"));
       resultsCells[2].classList.add("align-left");
       brokenUpCells = [...brokenUpCells, resultsCells];
-    } else {
-      const emptyCell = document.createElement("td");
-      emptyCell.classList.add("empty-row-cell");
-      emptyCell.colSpan = "3";
-      brokenUpCells = [...brokenUpCells, [emptyCell]];
     }
+    const emptyCell = document.createElement("td");
+    emptyCell.classList.add("empty-row-cell");
+    emptyCell.colSpan = "3";
+    brokenUpCells = [...brokenUpCells, [emptyCell]];
   });
 
   const stringRows = brokenUpCells.map((row) => {

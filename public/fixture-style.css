@@ -94,8 +94,9 @@ td {
 }
 
 .empty-row-cell {
-  height: 10px;
-  width: 100%;
-  margin: 0 38px;
-  border-bottom: 1px solid white;
+  height: 2px;
+  border: 5px solid #1b252f;
+  border-radius: 4px;
+  background: #cecece;
+  /* border-bottom: 1px solid white; */
 }
