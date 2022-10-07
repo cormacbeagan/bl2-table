@@ -90,6 +90,20 @@ app.get("/fixtures-regio", async (req, res) => {
   }
 });
 
+app.get("/fixtures-damen", async (req, res) => {
+  try {
+    const fixString = await fixtures(damen);
+    res.setHeader(
+      "Content-Security-Policy",
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
+    );
+    res.status(200).header("Content-Type", "text/html").send(fixString);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send(err);
+  }
+});
+
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}`);
 });

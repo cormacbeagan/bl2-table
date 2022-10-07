@@ -10,13 +10,13 @@ body {
 
 table {
   margin: 10px auto;
-  width: 80%;
+  max-width: 80%;
   height: 100%;
   min-height: 300px;
-  min-width: 350px;
-  /* border: 3px solid white; */
+  min-width: 300px;
+  border: 1px solid white;
   background: #1b252f;
-  /* border-radius: 3px; */
+  border-radius: 2px;
   /* padding: 5px 12px 5px 12px; */
   top: 0;
   bottom: 0;
@@ -34,24 +34,13 @@ th {
 }
 
 tr {
-  border: none;
+  border: 1px solid #1b252f;
   margin-top: 8px;
-  border-bottom: 1px solid black;
-  background: transparent;
-  border-radius: 2px;
-}
-
-tr:nth-child(odd) {
+  border-radius: 1px;
   background: #1b252f;
-  color: white;
-}
-tr:nth-child(even) {
-  background: #fff;
-  color: #1b252f;
 }
 
 tr:last-child {
-  background: #1b252f;
   height: 10px;
   font-size: 12px;
   text-align: right;
@@ -73,12 +62,40 @@ a:hover {
 }
 
 td {
-  padding: 0 5px 0 5px;
-  border-radius: 2px;
+  padding: 0 3px 0 3px;
+  border-radius: 1px;
   max-width: 160px;
   overflow: hidden;
 }
 
 .center {
   text-align: center;
+}
+
+.date-cell {
+  background: #1b252f;
+  color: white;
+}
+
+.team-cell {
+  background: white;
+}
+
+.results-cell {
+  background: white;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.empty-row-cell {
+  height: 10px;
+  width: 100%;
+  margin: 0 38px;
+  border-bottom: 1px solid white;
 }

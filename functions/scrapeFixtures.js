@@ -14,6 +14,7 @@ export const fixtures = async (league) => {
   const document = dom.window.document;
   const fixturesTable = document.querySelector(".games");
   const rows = fixturesTable.querySelectorAll("tr");
+
   let stuStaFix = [];
 
   rows.forEach((row) => {
@@ -25,9 +26,37 @@ export const fixtures = async (league) => {
     }
   });
 
-  const stringRows = stuStaFix.map((row) =>
-    new XMLSerializer().serializeToString(row)
-  );
+  const blankCell = document.createElement("td");
+
+  let brokenUpCells = [];
+  stuStaFix.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const dateCells = [cells["0"], blankCell, cells["1"]];
+    dateCells[0].classList.add("align-right");
+    dateCells.forEach((cell) => cell.classList.add("date-cell"));
+    const teamCells = [cells["2"], cells["3"], cells["4"]];
+    teamCells.forEach((cell) => cell.classList.add("team-cell"));
+    teamCells[0].classList.add("align-right");
+    brokenUpCells = [...brokenUpCells, dateCells, teamCells];
+    if (cells.length > 6) {
+      const resultsCells = [cells["5"], cells["6"], cells["7"]];
+      resultsCells.forEach((cell) => cell.classList.add("results-cell"));
+      resultsCells[2].classList.add("align-left");
+      brokenUpCells = [...brokenUpCells, resultsCells];
+    } else {
+      const emptyCell = document.createElement("td");
+      emptyCell.classList.add("empty-row-cell");
+      emptyCell.colSpan = "3";
+      brokenUpCells = [...brokenUpCells, [emptyCell]];
+    }
+  });
+
+  const stringRows = brokenUpCells.map((row) => {
+    console.log(row);
+    return `<tr>
+    ${row.map((cell) => new XMLSerializer().serializeToString(cell)).join("")}
+    </tr>`;
+  });
   const fixtureString = `<!DOCTYPE html>
 <html lang="en">
 <head>
