@@ -13,23 +13,40 @@ export const scraper = async (league) => {
   const document = dom.window.document;
   const table = document.querySelector(".nodec");
   const innerTable = table.querySelector(".table");
-  const newRow = innerTable.insertRow(-1);
-  const newCell = newRow.insertCell();
-  newCell.colSpan = 7;
-  newCell.className = "link";
-  const anchor = document.createElement("a");
-  const title = document.createTextNode(`© RugbyWeb.de`);
-  anchor.appendChild(title);
-  anchor.title = "RugbyWeb link";
-  anchor.href = "https://www.rugbyweb.de/";
-  newCell.appendChild(anchor);
-  if (!table) throw new Error("Table not found");
-  const tableString = new XMLSerializer().serializeToString(table);
-  const string = `<!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" type="text/css" href="style.css">
-<body>${tableString}</body>
-</html>`;
 
-  return string;
+  const tableRows = innerTable.querySelectorAll("tr");
+  let newTableRows = [];
+  tableRows.forEach((row, i) => {
+    if (i === 0 || i === 1) return;
+    const cells = Array.from(row.querySelectorAll("td")).slice(0, 4);
+    newTableRows.push(`<tr>
+      ${cells
+        .map((cell) => new XMLSerializer().serializeToString(cell))
+        .join("")}</tr>`);
+  });
+
+  const htmlString = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <table>
+  <tr>
+    <td class="center">Pl.</td>
+    <td class="header">Mannschaft</td>
+    <td class="header">Sp.</td>
+    <td class="header">Pkt.</td>
+  </tr>
+  ${newTableRows.map((item) => item).join("")}
+  <tr>
+    <td colspan="7" class="link">
+      <a href="https://www.RugbyWeb.de/" title="RugbyWeb.de" target="_blank" rel="noreferrer">&copy; RugbyWeb.de</a>
+    </td>
+  </tr>
+  </table>
+  </body>
+  </html>`;
+
+  return htmlString;
 };

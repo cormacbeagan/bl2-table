@@ -13,7 +13,7 @@ table {
   width: 80%;
   height: 100%;
   min-height: 190px;
-  min-width: 350px;
+  min-width: 300px;
   background: #1b252f;
   border: 1px solid white;
   border-radius: 2px;
@@ -24,7 +24,7 @@ table {
 }
 
 tbody {
-  background: white;
+  background: #1b252f;
   border-radius: 3px;
 }
 
@@ -48,9 +48,10 @@ tr:nth-child(odd) {
   background: #fff;
   color: #1b252f;
 }
-
 tr:nth-child(1) {
-  display: none;
+  background: #1b252f;
+  color: white;
+  text-decoration: underline;
 }
 
 tr:last-child {
