@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import { scraper } from "./functions/scraper.js";
 import { fixtures } from "./functions/scrapeFixtures.js";
+import { allFixtures } from "./functions/scrapeAllFixtures.js";
 import path from "path";
 
 const zweite = "RLbayern";
@@ -59,6 +60,20 @@ app.get("/damen", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(400).send();
+  }
+});
+
+app.get("/all-fixtures", async (req, res) => {
+  try {
+    const fixString = await allFixtures();
+    res.setHeader(
+      "Content-Security-Policy",
+      "frame-ancestors https://www.stusta-rugby.de http://127.0.0.1:5501"
+    );
+    res.status(200).header("Content-Type", "text/html").send(fixString);
+  } catch (err) {
+    console.error(err);
+    res.status(400).send(err);
   }
 });
 
