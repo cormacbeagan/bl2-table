@@ -4,7 +4,13 @@ const { JSDOM } = jsdom;
 global.XMLSerializer = new JSDOM().window.XMLSerializer;
 global.NodeList = new JSDOM().window.NodeList;
 
-export const fixtures = async (league) => {
+const serializeRow = (row) => {
+  return `<tr>${row
+    .map((cell) => new XMLSerializer().serializeToString(cell))
+    .join("")}</tr>`;
+};
+
+export const fixtures = async (league, justRows) => {
   const config = {
     method: "GET",
     url: `http://www.rugbyweb.de/showdb.inc.php?league=${league}&layout=rw2`,
@@ -27,7 +33,7 @@ export const fixtures = async (league) => {
   });
 
   const blankCell = document.createElement("td");
-
+  const rowObject = {};
   let brokenUpCells = [];
   stuStaFix.forEach((row) => {
     const cells = row.querySelectorAll("td");
@@ -38,24 +44,38 @@ export const fixtures = async (league) => {
     teamCells.forEach((cell) => cell.classList.add("team-cell"));
     teamCells[0].classList.add("align-right");
     brokenUpCells = [...brokenUpCells, dateCells, teamCells];
+    let resultCellOrNull = null;
     if (cells.length > 6) {
       const resultsCells = [cells["5"], cells["6"], cells["7"]];
       resultsCells.forEach((cell) => cell.classList.add("results-cell"));
       resultsCells[2].classList.add("align-left");
       brokenUpCells = [...brokenUpCells, resultsCells];
+      resultCellOrNull = resultsCells;
     }
-    const emptyCell = document.createElement("td");
-    emptyCell.classList.add("empty-row-cell");
-    emptyCell.colSpan = "3";
-    brokenUpCells = [...brokenUpCells, [emptyCell]];
+    const dateParts = cells["0"].textContent.split(".");
+    const dateKey = new Date(
+      dateParts[3],
+      Number(dateParts[2]) - 1,
+      dateParts[1],
+      12
+    )
+      .getTime()
+      .toString();
+
+    rowObject[dateKey] = {
+      date: serializeRow(dateCells),
+      team: serializeRow(teamCells),
+      result: resultCellOrNull ? serializeRow(resultCellOrNull) : null,
+    };
   });
 
   const stringRows = brokenUpCells.map((row) => {
-    console.log(row);
     return `<tr>
     ${row.map((cell) => new XMLSerializer().serializeToString(cell)).join("")}
     </tr>`;
   });
+
+  if (justRows) return rowObject;
   const fixtureString = `<!DOCTYPE html>
 <html lang="en">
 <head>
